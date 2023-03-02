@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Etudiant {
 
     private String nom;
     private String prenom;
     private int age;
     private Promo promo;
+    private ArrayList<Projet> listeProjets;
 
     @Override
     public String toString() {
@@ -12,14 +16,24 @@ public class Etudiant {
                 ", prenom='" + prenom + '\'' +
                 ", age=" + age +
                 ", promo=" + promo +
+                ", listeProjets=" + listeProjets +
                 '}';
     }
 
-    public Etudiant(String nom, String prenom, int age, Promo promo) {
+    public Etudiant(String nom, String prenom, int age, Promo promo, ArrayList<Projet> listeProjets) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.promo = promo;
+        this.listeProjets = listeProjets;
+    }
+
+    public ArrayList<Projet> getListeProjets() {
+        return listeProjets;
+    }
+
+    public void setListeProjets(ArrayList<Projet> listeProjets) {
+        this.listeProjets = listeProjets;
     }
 
     public String getNom() {
@@ -52,6 +66,10 @@ public class Etudiant {
 
     public void setPromo(Promo promo) {
         this.promo = promo;
+    }
+
+    public int calculDoubleAge() {
+        return this.age * 2;
     }
 
 }

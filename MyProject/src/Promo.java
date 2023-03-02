@@ -1,7 +1,6 @@
 public class Promo {
 
     private String nomPromo;
-
     private String annee;
 
     @Override
