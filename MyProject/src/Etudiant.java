@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -6,8 +7,18 @@ public class Etudiant {
     private String nom;
     private String prenom;
     private int age;
-    private Promo promo;
-    private ArrayList<Projet> listeProjets;
+    private ArrayList<Projet> mesProjets;
+
+    public ArrayList<Projet> getMesProjets() {
+        return mesProjets;
+    }
+
+    public Etudiant(String nom, String prenom, int age, ArrayList<Projet> mesProjets) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.mesProjets = mesProjets;
+    }
 
     @Override
     public String toString() {
@@ -15,25 +26,7 @@ public class Etudiant {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", age=" + age +
-                ", promo=" + promo +
-                ", listeProjets=" + listeProjets +
                 '}';
-    }
-
-    public Etudiant(String nom, String prenom, int age, Promo promo, ArrayList<Projet> listeProjets) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.age = age;
-        this.promo = promo;
-        this.listeProjets = listeProjets;
-    }
-
-    public ArrayList<Projet> getListeProjets() {
-        return listeProjets;
-    }
-
-    public void setListeProjets(ArrayList<Projet> listeProjets) {
-        this.listeProjets = listeProjets;
     }
 
     public String getNom() {
@@ -60,16 +53,16 @@ public class Etudiant {
         this.age = age;
     }
 
-    public Promo getPromo() {
-        return promo;
+    public void afficherListe() {
+        for (int i = 0; i < this.getMesProjets().size(); i ++) {
+            System.out.println(
+                    this.getMesProjets().get(i).getNomProjet()
+            );
+
+        }
     }
 
-    public void setPromo(Promo promo) {
-        this.promo = promo;
+    public void vieillir() {
+        this.age = this.age + 1;
     }
-
-    public int calculDoubleAge() {
-        return this.age * 2;
-    }
-
 }
